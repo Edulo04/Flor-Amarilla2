@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #17130f;
+    color: #fff8e7;
+    cursor: pointer;
+}
+
+#pantalla {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+
+/* =========================================
+   ESCENAS
+   ========================================= */
+
+.escena {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    transition:
+        opacity 1.4s ease,
+        transform 1.4s ease;
+
+    z-index: 10;
+}
+
+.contenido {
+    padding: 30px;
+}
+
+
+/* =========================================
+   PRIMERA ESCENA
+   ========================================= */
+
+.escena-inicial {
+    background:
+        radial-gradient(
+            circle at center,
+            #302419 0%,
+            #1f1812 45%,
+            #120f0c 100%
+        );
+
+    opacity: 1;
+}
+
+.escena-inicial h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+}
+
+.escena-inicial p {
+    font-family: Arial, sans-serif;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    opacity: 0.55;
+
+    animation: respirar 2.5s ease-in-out infinite;
+}
+
+
+/* =========================================
+   SEGUNDA ESCENA
+   ========================================= */
+
+.escena-segunda {
+    background:
+        radial-gradient(
+            circle at center,
+            #302419 0%,
+            #1f1812 45%,
+            #120f0c 100%
+        );
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform: scale(1.04);
+}
+
+.escena-segunda h2 {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+
+/* =========================================
+   RAMITO
+   ========================================= */
+
+.ramito {
+    position: absolute;
+
+    left: 50%;
+    bottom: -20px;
+
+    width: min(500px, 90vw);
+    height: min(600px, 82vh);
+
+    transform:
+        translateX(-50%)
+        translateY(110px)
+        scale(0.92);
+
+    opacity: 0;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    z-index: 20;
+
+    transition:
+        opacity 2s ease,
+        transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
+
+    pointer-events: none;
+}
+
+.flores-svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+
+/* =========================================
+   TALLOS
+   ========================================= */
+
+.tallos path {
+    fill: none;
+    stroke: #536a32;
+    stroke-width: 7;
+    stroke-linecap: round;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.5s ease,
+        stroke-dashoffset 2.5s ease;
+}
+
+
+/* =========================================
+   HOJAS
+   ========================================= */
+
+.hojas path {
+    fill: #667c3b;
+
+    opacity: 0;
+
+    transform-origin: center;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+/* =========================================
+   PÉTALOS
+   ========================================= */
+
+.petalos {
+    fill: #f2c94c;
+
+    opacity: 0;
+
+    transform-origin: center;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+
+/* =========================================
+   CENTROS DE LAS FLORES
+   ========================================= */
+
+.centro {
+    fill: #6d421f;
+
+    opacity: 0;
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+/* =========================================
+   ANIMACIÓN DEL RAMITO
+   ========================================= */
+
+.ramito.mostrar {
+    opacity: 1;
+
+    transform:
+        translateX(-50%)
+        translateY(0)
+        scale(1);
+}
+
+.ramito.mostrar .tallos path {
+    opacity: 1;
+}
+
+.ramito.mostrar .hojas path {
+    opacity: 1;
+}
+
+.ramito.mostrar .petalos {
+    opacity: 1;
+}
+
+.ramito.mostrar .centro {
+    opacity: 1;
+}
+
+
+/* Cada flor aparece ligeramente diferente */
+
+.ramito.mostrar .flor-izquierda .petalos,
+.ramito.mostrar .flor-izquierda .centro {
+    transition-delay: 0.3s;
+}
+
+.ramito.mostrar .flor-centro .petalos,
+.ramito.mostrar .flor-centro .centro {
+    transition-delay: 0.8s;
+}
+
+.ramito.mostrar .flor-derecha .petalos,
+.ramito.mostrar .flor-derecha .centro {
+    transition-delay: 0.5s;
+}
+
+
+/* =========================================
+   MENSAJE FINAL
+   ========================================= */
+
+.mensaje-final {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 7vh;
+
+    text-align: center;
+
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    z-index: 30;
+
+    transition:
+        opacity 1.8s ease,
+        transform 1.8s ease;
+
+    pointer-events: none;
+}
+
+.contenido-final {
+    padding: 20px;
+}
+
+.mensaje-final h2 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    font-weight: normal;
+
+    color: #f5cf55;
+
+    margin-bottom: 12px;
+}
+
+.mensaje-final p {
+    font-size: clamp(1rem, 3vw, 1.25rem);
+
+    color: #fff8e7;
+
+    opacity: 0.75;
+}
+
+
+/* =========================================
+   ESTADO FINAL
+   ========================================= */
+
+.mensaje-final.mostrar {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* =========================================
+   PÉTALOS QUE CAEN
+   ========================================= */
+
+#petalos-caidos {
+    position: absolute;
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 25;
+}
+
+.petalo-caido {
+    position: absolute;
+
+    top: -30px;
+
+    width: 10px;
+    height: 16px;
+
+    background: #f2c94c;
+
+    border-radius: 70% 30% 70% 30%;
+
+    opacity: 0.75;
+
+    animation:
+        caerPetalo linear forwards;
+}
+
+
+/* =========================================
+   ANIMACIONES
+   ========================================= */
+
+@keyframes respirar {
+
+    0%,
+    100% {
+        opacity: 0.35;
+        transform: translateY(0);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateY(-4px);
+    }
+}
+
+
+@keyframes caerPetalo {
+
+    0% {
+        transform:
+            translateY(-30px)
+            translateX(0)
+            rotate(0deg);
+    }
+
+    50% {
+        transform:
+            translateY(50vh)
+            translateX(35px)
+            rotate(180deg);
+    }
+
+    100% {
+        transform:
+            translateY(110vh)
+            translateX(-30px)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================
+   CELULARES
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .ramito {
+        width: 95vw;
+        height: 70vh;
+        bottom: 2vh;
+    }
+
+    .mensaje-final {
+        bottom: 5vh;
+    }
+
+    .escena-inicial h1 {
+        line-height: 1.2;
+    }
+}
