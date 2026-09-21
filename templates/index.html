@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Un pequeño gesto 💛</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+</head>
+
+<body>
+
+    <main id="pantalla">
+
+        <!-- ESCENA INICIAL -->
+        <section id="inicio" class="escena escena-inicial">
+            <div class="contenido">
+                <h1>Tengo algo para vos...</h1>
+                <p>Tocá la pantalla</p>
+            </div>
+        </section>
+
+
+        <!-- SEGUNDA ESCENA -->
+        <section id="segundo" class="escena escena-segunda">
+            <div class="contenido">
+                <h2>Un pequeño gesto...</h2>
+            </div>
+        </section>
+
+
+        <!-- RAMITO -->
+        <section id="ramito" class="ramito" aria-hidden="true">
+
+            <svg
+                class="flores-svg"
+                viewBox="0 0 500 600"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+
+                <!-- Tallos -->
+                <g class="tallos">
+
+                    <path
+                        d="M250 560 C245 470 245 360 250 220"
+                    />
+
+                    <path
+                        d="M250 560 C225 470 190 390 155 300"
+                    />
+
+                    <path
+                        d="M250 560 C275 470 315 390 350 300"
+                    />
+
+                </g>
+
+
+                <!-- Hojas -->
+                <g class="hojas">
+
+                    <path
+                        d="M230 470
+                           C190 430 150 440 135 475
+                           C175 490 210 485 230 470Z"
+                    />
+
+                    <path
+                        d="M275 430
+                           C315 395 350 405 365 440
+                           C325 455 295 450 275 430Z"
+                    />
+
+                    <path
+                        d="M240 390
+                           C205 355 175 360 160 390
+                           C195 405 220 405 240 390Z"
+                    />
+
+                </g>
+
+
+                <!-- FLORES -->
+
+                <!-- Flor izquierda -->
+                <g class="flor flor-izquierda">
+
+                    <circle
+                        class="centro"
+                        cx="155"
+                        cy="270"
+                        r="30"
+                    />
+
+                    <g class="petalos">
+
+                        <ellipse cx="155" cy="225" rx="18" ry="42"/>
+                        <ellipse cx="155" cy="315" rx="18" ry="42"/>
+
+                        <ellipse
+                            cx="110"
+                            cy="270"
+                            rx="42"
+                            ry="18"
+                        />
+
+                        <ellipse
+                            cx="200"
+                            cy="270"
+                            rx="42"
+                            ry="18"
+                        />
+
+                        <ellipse
+                            cx="123"
+                            cy="238"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(-45 123 238)"
+                        />
+
+                        <ellipse
+                            cx="187"
+                            cy="238"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(45 187 238)"
+                        />
+
+                        <ellipse
+                            cx="123"
+                            cy="302"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(45 123 302)"
+                        />
+
+                        <ellipse
+                            cx="187"
+                            cy="302"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(-45 187 302)"
+                        />
+
+                    </g>
+
+                </g>
+
+
+                <!-- Flor central -->
+                <g class="flor flor-centro">
+
+                    <circle
+                        class="centro"
+                        cx="250"
+                        cy="180"
+                        r="32"
+                    />
+
+                    <g class="petalos">
+
+                        <ellipse cx="250" cy="132" rx="19" ry="45"/>
+                        <ellipse cx="250" cy="228" rx="19" ry="45"/>
+
+                        <ellipse
+                            cx="202"
+                            cy="180"
+                            rx="45"
+                            ry="19"
+                        />
+
+                        <ellipse
+                            cx="298"
+                            cy="180"
+                            rx="45"
+                            ry="19"
+                        />
+
+                        <ellipse
+                            cx="216"
+                            cy="146"
+                            rx="19"
+                            ry="43"
+                            transform="rotate(-45 216 146)"
+                        />
+
+                        <ellipse
+                            cx="284"
+                            cy="146"
+                            rx="19"
+                            ry="43"
+                            transform="rotate(45 284 146)"
+                        />
+
+                        <ellipse
+                            cx="216"
+                            cy="214"
+                            rx="19"
+                            ry="43"
+                            transform="rotate(45 216 214)"
+                        />
+
+                        <ellipse
+                            cx="284"
+                            cy="214"
+                            rx="19"
+                            ry="43"
+                            transform="rotate(-45 284 214)"
+                        />
+
+                    </g>
+
+                </g>
+
+
+                <!-- Flor derecha -->
+                <g class="flor flor-derecha">
+
+                    <circle
+                        class="centro"
+                        cx="350"
+                        cy="270"
+                        r="30"
+                    />
+
+                    <g class="petalos">
+
+                        <ellipse cx="350" cy="225" rx="18" ry="42"/>
+                        <ellipse cx="350" cy="315" rx="18" ry="42"/>
+
+                        <ellipse
+                            cx="305"
+                            cy="270"
+                            rx="42"
+                            ry="18"
+                        />
+
+                        <ellipse
+                            cx="395"
+                            cy="270"
+                            rx="42"
+                            ry="18"
+                        />
+
+                        <ellipse
+                            cx="318"
+                            cy="238"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(-45 318 238)"
+                        />
+
+                        <ellipse
+                            cx="382"
+                            cy="238"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(45 382 238)"
+                        />
+
+                        <ellipse
+                            cx="318"
+                            cy="302"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(45 318 302)"
+                        />
+
+                        <ellipse
+                            cx="382"
+                            cy="302"
+                            rx="18"
+                            ry="40"
+                            transform="rotate(-45 382 302)"
+                        />
+
+                    </g>
+
+                </g>
+
+            </svg>
+
+        </section>
+
+
+        <!-- MENSAJE FINAL -->
+        <section id="final" class="mensaje-final">
+
+            <div class="contenido-final">
+
+                <h2>Para vos 💛</h2>
+
+                <p>
+                    Espero que te saque una sonrisa.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- PÉTALOS -->
+        <div id="petalos-caidos"></div>
+
+    </main>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
